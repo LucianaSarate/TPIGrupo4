@@ -93,7 +93,7 @@ constructor(private router: Router,private _modal:NgbModal){
   }
 
   mostrar(denuncia:Denuncia){
-    const modal = this._modal.open(ModalInfoDenunciaComponent, { size: 'lg' , backdrop: 'static', keyboard: false });
+    const modal = this._modal.open(ModalInfoDenunciaComponent, { size: 'lg' ,  keyboard: false });
     modal.componentInstance.denuncia = denuncia;
     modal.result.then((result) => {
      
@@ -121,6 +121,6 @@ constructor(private router: Router,private _modal:NgbModal){
     }
   }
   onButtonClick() {
-    this.router.navigate(['/componente-2']);
+    this.router.navigate(['/nuevaDenuncia']);
   }
 }

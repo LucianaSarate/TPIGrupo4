@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ListaDenunciasComponent } from "./lista-denuncias/lista-denuncias.component";
-import { NuevaDenunciaComponent } from './nueva-denuncia/nueva-denuncia.component';
+
+import { NuevaDenunciaComponent } from "./nueva-denuncia/nueva-denuncia.component";
 
 @Component({
   selector: 'app-root',

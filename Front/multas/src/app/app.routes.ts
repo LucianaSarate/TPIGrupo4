@@ -3,6 +3,6 @@ import { NuevaDenunciaComponent } from './nueva-denuncia/nueva-denuncia.componen
 import { ListaDenunciasComponent } from './lista-denuncias/lista-denuncias.component';
 
 export const routes: Routes = [
-    { path: 'listado', component: ListaDenunciasComponent },
-  { path: 'nuevaDenuncia', component: NuevaDenunciaComponent },
+  //   { path: 'listado', component: ListaDenunciasComponent },
+  // { path: 'nuevaDenuncia', component: NuevaDenunciaComponent },
 ];

@@ -1,1 +1,42 @@
-<H2>rama</H2>
+
+<div class="container-fluid">
+    <div class="container ">
+
+        <div class="text-center">
+        <h1>Listado de denuncias</h1>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <input type="text" placeholder="Buscar" class="form form-control " (keyup)="applyFilter($event)">
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+        </div>
+
+        <div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Estados</th>
+                    <th scope="col">Detalle</th>
+                    <th scope="col">Archivos adjuntos</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let d of denuncias">
+                    <th scope="row">{{d.id}}</th>
+                    <th ><button class="btn {{ getEstadoClase(d.estado) }} rounded-button">{{d.estado}}</button></th>
+                    <td>{{d.detalle}}</td>
+                    <td><i class="bi bi-paperclip"></i> 1 Archivo adjunto</td>
+                    <td><button (click)="mostrar()">ver mas...</button></td>
+                </tr>
+               
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>
+

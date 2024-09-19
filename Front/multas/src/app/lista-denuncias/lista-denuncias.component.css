@@ -1,3 +1,8 @@
 .btn{
     --bs-btn-border-color: #000000;
 }
+.redondeado {
+    color: #000000;
+    border-radius: 15px; /* Radio de las esquinas redondeadas */
+    background-color: #D9D9D9;
+  }

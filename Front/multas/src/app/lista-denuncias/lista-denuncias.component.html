@@ -1,36 +1,50 @@
 
-<div class="container-fluid">
-    <div class="container ">
+<div class="container-fluid" style="background-color: #FFCB99;">
+    <div class="container " style="background-color: #6E5D4D; padding: 2%;">
+
 
         <div class="text-center">
-        <h1>Listado de denuncias</h1>
+        <h1 style="color: #ffffff;">Listado de denuncias</h1>
         </div>
+        <br>
         <div class="row">
             <div class="col-4">
-                <input type="text" placeholder="Buscar" class="form form-control " (keyup)="applyFilter($event)">
+              <input
+                type="text"
+                placeholder="Buscar"
+                class="form-control"
+                (keyup)="applyFilter($event)"
+              />
             </div>
-            <div class="col-4"></div>
-            <div class="col-4"></div>
-        </div>
+            <div class="col-4">
+            </div>
+            <div class="col-4 text-end">
+              <button class="btn btn-primary" (click)="onButtonClick()" >Nueva Denuncia +</button>
+            </div>
+          </div>
+          <br>
 
         <div>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Estados</th>
-                    <th scope="col">Detalle</th>
-                    <th scope="col">Archivos adjuntos</th>
-                    <th scope="col">Acciones</th>
+            <table class="table " style="border-radius: 15px;">
+                <thead >
+                <tr class="text-center">
+                    <th scope="col" style="background-color: #EEEEEE;"><p class="redondeado">#</p></th>
+                    <th scope="col"style="background-color: #EEEEEE;"><p class="redondeado">Estados</p></th>
+                    <th scope="col"style="background-color: #EEEEEE;"><p class="redondeado">Detalle</p></th>
+                    <th scope="col"style="background-color: #EEEEEE;"><p class="redondeado">Archivos adjuntos</p></th>
+                    <th scope="col"style="background-color: #EEEEEE;"><p class="redondeado">Acciones</p></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr *ngFor="let d of denuncias">
                     <th scope="row">{{d.id}}</th>
-                    <th ><button class="btn {{ getEstadoClase(d.estado) }} rounded-button">{{d.estado}}</button></th>
+                    <th ><button class="btn {{ getEstadoClase(d.estado) }}"[style]="">{{d.estado}}</button></th>
                     <td>{{d.detalle}}</td>
-                    <td><i class="bi bi-paperclip"></i> 1 Archivo adjunto</td>
-                    <td><button (click)="mostrar()">ver mas...</button></td>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-paperclip" viewBox="0 0 16 16">
+                        <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z"/>
+                      </svg> 1 Archivo adjunto</td>
+                      <!-- <i class="bi bi-paperclip"></i>  icono que deberia ser -->
+                    <td><button class="btn" (click)="mostrar(d)" style="background-color: #17A2B8; color: #ffffff;">ver mas...</button></td>
                 </tr>
                
                 </tbody>

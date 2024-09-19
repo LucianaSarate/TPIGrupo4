@@ -1,11 +1,54 @@
 <div class="modal-header"> 
-    <h4 class="display-6" >Agregar Archivo</h4>
+    <label for="">{{denuncia.tipo}}</label>
+    <label for="">{{denuncia.fecha| date : 'dd/mm/yyyy'}}</label>
 </div>
 <div class="modal-body">
-    
+    <div class="Container">
+     
+    <div class="row">
+        <div class="col-6">
+            <h5>Descripcion</h5>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  
+                  <p class="card-text">{{denuncia.detalle}}</p>
+              
+                </div>
+              </div>
+
+        </div>
+        <div class="col-4">
+            <h5>Denunciante</h5>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  
+                  <p class="card-text">{{denuncia.nombre}}</p>
+              
+                </div>
+              </div>
+        </div>
+    </div>
+
+    <h5>adjuntos</h5>
+    <hr>
+    <div class="card" style="width: 18rem;">
+        <img src="image.png" class="card-img-top" alt="..." width="30px" height="30px">
+        
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="image.png" class="card-img-top" alt="...">
+        
+      </div>
+</div>
 </div>
 <div class="modal-footer">
     <button class="btn btn-success ms-3" (click)="cerrar()">Aceptar</button>
 </div>
+
+<img src="image.png" class="card-img-top" alt="..." width="30px" height="30px">
+        
+
+        <img src="image.png" class="card-img-top" alt="...">
+        
 
   

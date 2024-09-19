@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: tpi_2w1_grupo4
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ""
+
+server:
+  port: 9090
+
+

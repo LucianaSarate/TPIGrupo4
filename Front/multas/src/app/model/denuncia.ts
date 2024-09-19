@@ -4,6 +4,7 @@ export interface Denuncia {
     detalle: string
     tipo: TipoDenuncia;
     estado: EstadoDenuncia;
+    fecha:Date;
 }
 //(aprobada, ignorada, rechazada, pendiente)
 //(incimplimiento daño  infrwaccion de volumen, no manteni miento de limpieza)

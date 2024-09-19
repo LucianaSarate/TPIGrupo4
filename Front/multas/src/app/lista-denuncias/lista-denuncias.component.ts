@@ -18,49 +18,56 @@ export class ListaDenunciasComponent {
         nombre: 'Juan Pérez',
         detalle: 'Incumplimiento de horario en el área de producción.',
         tipo: TipoDenuncia.IncumplimientoDeVelocidad,
-        estado: EstadoDenuncia.Pendiente
+        estado: EstadoDenuncia.Pendiente,
+        fecha: new Date
     },
     {
         id: 2,
         nombre: 'Ana Gómez',
         detalle: 'Daño en el equipo de limpieza en el área de mantenimiento.',
         tipo: TipoDenuncia.Daño,
-        estado: EstadoDenuncia.Rechazada
+        estado: EstadoDenuncia.Rechazada,
+        fecha: new Date
     },
     {
         id: 3,
         nombre: 'Carlos Martínez',
         detalle: 'Infracción de volumen en la carga de materiales.',
         tipo: TipoDenuncia.InfracciónDeinquilino,
-        estado: EstadoDenuncia.Aprobada
+        estado: EstadoDenuncia.Aprobada,
+        fecha: new Date
     },
     {
         id: 4,
         nombre: 'Lucía Fernández',
         detalle: 'No se realizó el mantenimiento de limpieza programado.',
         tipo: TipoDenuncia.NoMantenimientoDeLimpieza,
-        estado: EstadoDenuncia.Ignorada
+        estado: EstadoDenuncia.Ignorada,
+        fecha: new Date
     },
     {
         id: 5,
         nombre: 'Pedro Morales',
         detalle: 'Incumplimiento de seguridad en el área de producción.',
         tipo: TipoDenuncia.IncumplimientoDeVelocidad,
-        estado: EstadoDenuncia.Pendiente
+        estado: EstadoDenuncia.Pendiente,
+        fecha: new Date
     },
     {
         id: 6,
         nombre: 'María Rodríguez',
         detalle: 'Daño en la maquinaria de la línea de montaje.',
         tipo: TipoDenuncia.Daño,
-        estado: EstadoDenuncia.Rechazada
+        estado: EstadoDenuncia.Rechazada,
+        fecha: new Date
     },
     {
         id: 7,
         nombre: 'Luis Hernández',
         detalle: 'Infracción de volumen en la entrega de productos.',
         tipo: TipoDenuncia.Daño,
-        estado: EstadoDenuncia.Aprobada
+        estado: EstadoDenuncia.Aprobada,
+        fecha: new Date
     }
 ];
 
@@ -78,13 +85,14 @@ constructor(private _modal:NgbModal){
         return idProyectoStr.indexOf(filterValueLower) >= 0 || clienteStr.indexOf(filterValueLower) >= 0;
       });
     }else{
-      this.denuncias
+       this.denuncias
     }
     
   }
 
-  mostrar(){
+  mostrar(denuncia:Denuncia){
     const modal = this._modal.open(ModalInfoDenunciaComponent, { size: 'lg' , backdrop: 'static', keyboard: false });
+    modal.componentInstance.denuncia = denuncia;
     modal.result.then((result) => {
      
     }).catch((error) => {

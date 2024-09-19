@@ -3,11 +3,13 @@ import { Denuncia, EstadoDenuncia, TipoDenuncia } from '../model/denuncia';
 import { CommonModule } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalInfoDenunciaComponent } from '../modals/modal-info-denuncia/modal-info-denuncia.component';
+import { Router, RouterLink } from '@angular/router';
+import { NuevaDenunciaComponent } from '../nueva-denuncia/nueva-denuncia.component';
 
 @Component({
   selector: 'app-lista-denuncias',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, NuevaDenunciaComponent],
   templateUrl: './lista-denuncias.component.html',
   styleUrl: './lista-denuncias.component.css'
 })
@@ -71,7 +73,7 @@ export class ListaDenunciasComponent {
     }
 ];
 
-constructor(private _modal:NgbModal){
+constructor(private router: Router,private _modal:NgbModal){
 
 }
   applyFilter(event: Event) {
@@ -117,5 +119,8 @@ constructor(private _modal:NgbModal){
       default:
         return '';
     }
+  }
+  onButtonClick() {
+    this.router.navigate(['/componente-2']);
   }
 }

@@ -1,54 +1,38 @@
-<div class="modal-header"> 
-    <label for="">{{denuncia.tipo}}</label>
-    <label for="">{{denuncia.fecha| date : 'dd/mm/yyyy'}}</label>
+<div class="modal-header" style="background-color: #6E5D4D; color: rgb(255, 255, 255);">
+  
+  <label >{{ denuncia.tipo }}</label>  
+  <label style="margin-left: 76%;">{{ denuncia.fecha | date : "dd/mm/yyyy" }}</label> 
 </div>
-<div class="modal-body">
-    <div class="Container">
-     
+<div class="modal-body" style="color: #6E5D4D; background-color: #FFCB99;">
+  <div class="Container">
     <div class="row">
-        <div class="col-6">
-            <h5>Descripcion</h5>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  
-                  <p class="card-text">{{denuncia.detalle}}</p>
-              
-                </div>
-              </div>
-
+      <div class="col-6">
+        <h5>Descripcion</h5>
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+            <p class="card-text">{{ denuncia.detalle }}</p>
+          </div>
         </div>
-        <div class="col-4">
-            <h5>Denunciante</h5>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  
-                  <p class="card-text">{{denuncia.nombre}}</p>
-              
-                </div>
-              </div>
+      </div>
+      <div class="col-4">
+        <h5>Denunciante</h5>
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+            <p class="card-text">{{ denuncia.nombre }}</p>
+          </div>
         </div>
+      </div>
     </div>
 
     <h5>adjuntos</h5>
-    <hr>
-    <div class="card" style="width: 18rem;">
-        <img src="image.png" class="card-img-top" alt="..." width="30px" height="30px">
-        
+    <hr />
+    <div class="d-flex">
+      <div class="card" style="width: 18rem" style="border-color: #6E5D4D;">
+        <img src="assets/image.png" class="card-img-top" alt="..." />
       </div>
-      <div class="card" style="width: 18rem;">
-        <img src="image.png" class="card-img-top" alt="...">
-        
+      <div class="card" style="width: 18rem" style="border-color: #6E5D4D;">
+        <img src="assets/image.png" class="card-img-top" alt="..." />
       </div>
+    </div>
+  </div>
 </div>
-</div>
-<div class="modal-footer">
-    <button class="btn btn-success ms-3" (click)="cerrar()">Aceptar</button>
-</div>
-
-<img src="image.png" class="card-img-top" alt="..." width="30px" height="30px">
-        
-
-        <img src="image.png" class="card-img-top" alt="...">
-        
-
-  

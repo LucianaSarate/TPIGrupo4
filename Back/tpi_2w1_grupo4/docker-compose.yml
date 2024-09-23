@@ -1,0 +1,30 @@
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: tpi_integrador
+      MYSQL_USER: userback
+      MYSQL_PASSWORD: tpigrupocuatro
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  app:
+    image: microservice_fines
+    container_name: fines_app
+    build: .
+    depends_on:
+      - mysql-db
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/tpi_integrador
+      SPRING_DATASOURCE_USERNAME: userback
+      SPRING_DATASOURCE_PASSWORD: tpigrupocuatro
+
+volumes:
+  db_data:
+

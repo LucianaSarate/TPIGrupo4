@@ -1,0 +1,40 @@
+services:
+  mysql-db:
+    container_name: mysql-db
+    image: mysql:8.0
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: userback
+      MYSQL_PASSWORD: tpigrupocuatro
+      MYSQL_DATABASE: tpiintegrador
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - app-network
+
+  app:
+    container_name: fines_app
+    image: fines-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8085:8085
+    depends_on:
+      - mysql-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/tpiintegrador
+      SPRING_DATASOURCE_USERNAME: userback
+      SPRING_DATASOURCE_PASSWORD: tpigrupocuatro
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:
+

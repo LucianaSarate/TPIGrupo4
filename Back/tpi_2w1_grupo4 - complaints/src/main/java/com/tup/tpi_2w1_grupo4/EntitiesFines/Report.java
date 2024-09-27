@@ -1,21 +1,32 @@
-package com.tup.tpi_2w1_grupo4.EntitiesComplaints;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+package com.tup.tpi_2w1_grupo4.EntitiesFines;
+
 import lombok.Data;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "REPORT_REASON")
-public class ReportReason {
+@Table(name = "REPORTS")
+public class Report {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "report_reason", nullable = false)
-    private String reportReason;
+    @Column(name = "report_state", nullable = false)
+    private String reportState;
+
+    @ManyToOne
+    @JoinColumn(name = "report_reason_id", nullable = false)
+    private ReportReason reportReason;
+
+    @Column(name = "plot_id", nullable = false)
+    private Integer plotId;
+
+    @Column(name = "description", nullable = false)
+    private String description;
+
+    @Column(name = "state_reason", nullable = false)
+    private String stateReason;
 
     @Column(name = "created_date", nullable = false)
     private LocalDateTime createdDate;

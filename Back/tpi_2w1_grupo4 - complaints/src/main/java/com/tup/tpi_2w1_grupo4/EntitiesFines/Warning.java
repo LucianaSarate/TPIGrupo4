@@ -1,6 +1,5 @@
 package com.tup.tpi_2w1_grupo4.EntitiesFines;
 
-import com.tup.tpi_2w1_grupo4.EntitiesComplaints.Report;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

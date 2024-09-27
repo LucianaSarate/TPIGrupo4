@@ -1,29 +1,21 @@
-package com.tup.tpi_2w1_grupo4.EntitiesComplaints;
-
+package com.tup.tpi_2w1_grupo4.EntitiesFines;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "REPORTS")
-public class Report {
+@Table(name = "REPORT_REASON")
+public class ReportReason {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "report_state", nullable = false)
-    private String reportState;
-
-    @ManyToOne
-    @JoinColumn(name = "report_reason_id", nullable = false)
-    private ReportReason reportReason;
-
-    @Column(name = "accused_id", nullable = false)
-    private Integer accusedId;
-
-    @Column(name = "description", nullable = false)
-    private String description;
+    @Column(name = "report_reason", nullable = false)
+    private String reportReason;
 
     @Column(name = "created_date", nullable = false)
     private LocalDateTime createdDate;
@@ -37,4 +29,3 @@ public class Report {
     @Column(name = "last_updated_user", nullable = false)
     private Integer lastUpdatedUser;
 }
-

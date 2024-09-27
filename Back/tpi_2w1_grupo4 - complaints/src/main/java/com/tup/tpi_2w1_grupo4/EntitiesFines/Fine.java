@@ -1,6 +1,5 @@
 package com.tup.tpi_2w1_grupo4.EntitiesFines;
 
-import com.tup.tpi_2w1_grupo4.EntitiesComplaints.Report;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -26,6 +25,9 @@ public class Fine {
     @Column(name = "amount", nullable = false)
     private Double amount;
 
+    @Column(name = "state_reason", nullable = false)
+    private String stateReason;
+
     @Column(name = "created_date", nullable = false)
     private LocalDateTime createdDate;
 
@@ -38,4 +40,3 @@ public class Fine {
     @Column(name = "last_updated_user", nullable = false)
     private Integer lastUpdatedUser;
 }
-

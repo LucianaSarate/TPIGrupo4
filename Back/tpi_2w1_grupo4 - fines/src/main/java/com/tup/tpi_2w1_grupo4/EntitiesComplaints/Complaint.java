@@ -1,5 +1,6 @@
 package com.tup.tpi_2w1_grupo4.EntitiesComplaints;
 
+import com.tup.tpi_2w1_grupo4.EntitiesFines.Report;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -27,6 +28,9 @@ public class Complaint {
 
     @Column(name = "description", nullable = false)
     private String description;
+
+    @Column(name = "state_reason", nullable = false)
+    private String stateReason;
 
     @Column(name = "created_date", nullable = false)
     private LocalDateTime createdDate;

@@ -1,4 +1,4 @@
-package com.tup.tpi_2w1_grupo4.EntitiesComplaints;
+package com.tup.tpi_2w1_grupo4.EntitiesFines;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;

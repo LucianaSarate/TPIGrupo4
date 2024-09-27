@@ -1,5 +1,6 @@
-package com.tup.tpi_2w1_grupo4.EntitiesComplaints;
+package com.tup.tpi_2w1_grupo4.EntitiesFines;
 
+import com.tup.tpi_2w1_grupo4.EntitiesFines.ReportReason;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -19,11 +20,14 @@ public class Report {
     @JoinColumn(name = "report_reason_id", nullable = false)
     private ReportReason reportReason;
 
-    @Column(name = "accused_id", nullable = false)
-    private Integer accusedId;
+    @Column(name = "plot_id", nullable = false)
+    private Integer plotId;
 
     @Column(name = "description", nullable = false)
     private String description;
+
+    @Column(name = "state_reason", nullable = false)
+    private String stateReason;
 
     @Column(name = "created_date", nullable = false)
     private LocalDateTime createdDate;

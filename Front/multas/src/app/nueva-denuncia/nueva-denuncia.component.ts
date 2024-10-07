@@ -1,18 +1,64 @@
-import { Component } from '@angular/core';
-import { TipoDenuncia } from '../model/denuncia';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DenunciaService } from '../services/denuncia.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-nueva-denuncia',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './nueva-denuncia.component.html',
   styleUrl: './nueva-denuncia.component.css'
 })
-export class NuevaDenunciaComponent {
-  tipoDenuncias: string[] = Object.values(TipoDenuncia);
+export class NuevaDenunciaComponent implements OnInit {
 
-  textAreaValue: string = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam quisquam impedit eos, necessitatibus harum debitis. Similique voluptates iste dolorem quisquam tempora. Ut totam nihil ex explicabo officia dicta dolorum atque! Ad quibusdam odio, laborum corporis magnam ratione voluptatum quam ut tenetur iusto corrupti illum molestiae odit debitis facilis architecto omnis! Quae quia officia recusandae soluta illum tempore veniam, iusto eius."
+  selectedOption: string = '';
+  selectedDate: string = '';
+  maxDate: string = '';
+  textareaContent: string = '';
+  textareaPlaceholder: string = 'Ingrese su mensaje aquí...';
+  complaintTypes: { id: string; value: string }[] = [];
+
+  constructor(private denunciaService: DenunciaService) { }
+
+  ngOnInit(): void {
+    this.getTypes();
+  }
+
+  getTypes(): void {
+    this.denunciaService.getTypes().subscribe({
+      next: (data) => {
+        this.complaintTypes = data;
+      },
+      error: (error) => {
+        console.error('error: ', error);
+      }
+    })
+  }
+
+  onSubmit(): void {
+    if (this.selectedOption && this.selectedDate && this.textareaContent) {
+      const denunciaData = {
+        userId: 1,
+        complaintType: this.selectedOption,
+        description: this.textareaContent,
+        pictures: [
+          {
+            pictureUrl: "https://picsum.photos/200/300"
+          }
+        ]
+      };
+
+      this.denunciaService.add(denunciaData).subscribe({
+        next: (response) => {
+          console.log('Denuncia enviada correctamente', response);
+        },
+        error: (error) => {
+          console.error('Error al enviar la denuncia', error);
+        }
+      });
+    }
+  }
 
 }
